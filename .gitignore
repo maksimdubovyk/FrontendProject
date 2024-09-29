@@ -10,6 +10,8 @@
 
 # production
 /build
+/src/styles/main.css
+/src/styles/main.css.map
 
 # misc
 .DS_Store
