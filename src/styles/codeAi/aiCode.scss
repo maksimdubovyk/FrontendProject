@@ -1,0 +1,50 @@
+.bottomAi {
+    display: flex;
+    flex-direction: column; // Stack buttons vertically
+    align-items: center; // Center align buttons
+    padding: 20px; // Padding around the container
+    background: linear-gradient(135deg, #2a2a2a, #1e1e1e); // Gradient background for a stylish effect
+    border-radius: 8px; // Rounded corners for the container
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); // Subtle shadow effect
+
+    button {
+      background-color: #007acc; // Button background color
+      color: white; // Text color
+      border: none; // Remove default border
+      border-radius: 4px; // Rounded corners
+      padding: 10px 20px; // Padding inside buttons
+      font-size: 16px; // Font size
+      cursor: pointer; // Change cursor to pointer
+      margin: 5px 0; // Space between buttons
+
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; // Smooth transition effects
+
+      // Style for hover state
+      &:hover {
+        background-color: #005a99; // Darker shade on hover
+        transform: scale(1.05); // Slightly enlarge button on hover
+        box-shadow: 0 4px 10px rgba(0, 90, 255, 0.5); // Shadow effect on hover
+      }
+
+      // Style for active state
+      &:active {
+        transform: scale(0.95); // Slightly shrink button when clicked
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); // Reduce shadow on click
+      }
+    }
+}
+
+.alertCopy {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000; // To ensure the alert is above other elements
+    transition: opacity 0.3s ease; // Optional: Add a transition for fade effect
+    opacity: 1; // Make sure it's visible
+
+  }

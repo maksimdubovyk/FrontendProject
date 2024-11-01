@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/main.css';
 import CodeEditor from './CodeEditor';
+import CodeAi from './CodeAi';
 import CodeQuality from './CodeQuality';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
             </div>
             <div className='code-from-ai'>
                 {/* Код від ШІ  */}
+                <CodeAi />
             </div>
         </div>
       </div>
