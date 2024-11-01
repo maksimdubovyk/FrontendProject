@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -36,4 +38,32 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.code-editor {
+  display: flex;
+  width: 60%;
+  height: 100%;
+  background-color: #20db49;
+}
+
+.instrument-helpers {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.code-quality, .code-from-ai {
+  display: flex;  
+  max-height: 50%;
+  flex-grow: 1;
+}
+
+.code-quality {
+  background-color: #205edb;
+}
+
+.code-from-ai {
+  background-color: #db5e20;
 }
