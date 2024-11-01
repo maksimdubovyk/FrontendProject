@@ -1,0 +1,41 @@
+.bottom {
+    display: flex;
+    padding: 5px;
+    gap: 10px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white; /* Текст кольору білий */
+    background-color: #6c757d; /* Основний колір кнопки */
+    border: none; /* Без обводки */
+    border-radius: 5px; /* Заокруглені кути */
+    cursor: pointer; /* Курсор у вигляді руки при наведенні */
+    transition: background-color 0.3s ease; /* Анімація переходу */
+    outline: none;
+}
+
+.button:hover {
+    background-color: #5a6268;
+}
+
+.language-dropdown{
+    color: white;
+}
+
+.dropdown {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+.dropdown:hover {
+    border-color: #686e74; /* Зміна кольору обводки при наведенні */
+}
