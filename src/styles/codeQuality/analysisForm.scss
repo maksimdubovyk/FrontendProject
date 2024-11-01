@@ -1,0 +1,44 @@
+.code-quality {
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .editor-container {
+    width: 550px;
+    height: 295px;
+    padding: 8px 12px;
+  }
+  
+  .bottomA {
+    margin-left: 10px; // Додайте відступ між редактором і кнопками
+  }
+  
+  .copy-button,
+  .export-button {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  
+    &:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+  }
+  
+  .alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  
