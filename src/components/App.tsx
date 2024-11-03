@@ -3,9 +3,20 @@ import "../styles/main.css";
 import CodeEditor from "./CodeEditor";
 import CodeAi from "./CodeAi";
 import CodeQuality from "./CodeQuality";
+import { OpenAIClient } from "../scripts/OpenAIClient";
 
-class App extends Component {
-   render() {
+interface AppProps {}
+
+interface AppState {
+   openAIClient: OpenAIClient;
+}
+
+export class App extends Component<AppProps, AppState> {
+   componentDidMount(): void {
+      this.setState({ openAIClient: new OpenAIClient() });
+   }
+
+   render(): JSX.Element {
       return (
          <div className="App">
             <div className="code-editor">
@@ -24,5 +35,3 @@ class App extends Component {
       );
    }
 }
-
-export default App;

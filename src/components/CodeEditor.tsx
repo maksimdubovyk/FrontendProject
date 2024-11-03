@@ -22,7 +22,7 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
    };
 
    onModifyCodeButtonClick = (): void => {
-      console.log("Quality of code");
+      console.log("Modify code");
    };
 
    handleLanguageChange = (
@@ -37,7 +37,7 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
       this.setState({ userCode });
    };
 
-   render() {
+   render(): JSX.Element {
       return (
          <>
             {this.renderEditor()}
@@ -46,7 +46,7 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
       );
    }
 
-   renderEditor() {
+   renderEditor(): JSX.Element {
       return (
          <Editor
             defaultLanguage="javascript"
@@ -58,7 +58,7 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
       );
    }
 
-   renderLanguageDropdown() {
+   renderLanguageDropdown(): JSX.Element {
       const languages = [
          { code: "typescript", name: "TypeScript" },
          { code: "javascript", name: "JavaScript" },
@@ -88,7 +88,7 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
       );
    }
 
-   renderBottom() {
+   renderBottom(): JSX.Element {
       return (
          <div className="bottom">
             <button className="button" onClick={this.onQualityCodeButtonClick}>

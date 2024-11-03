@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 import { OpenAIModels } from "./OpenAIModels";
 
-export class OpenAIClient {
+export class OpenAIAPI {
    private openai: OpenAI;
 
    constructor() {
