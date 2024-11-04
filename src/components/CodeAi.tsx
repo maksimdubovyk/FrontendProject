@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Editor from "@monaco-editor/react";
+import { OpenAIClient } from "../scripts/OpenAIClient";
 
 // Определение типов для props и state
 interface CodeAiProps {
-   // здесь можно определить типы для свойств
+   openAIClient: OpenAIClient;
 }
 
 interface CodeAiState {
@@ -20,7 +21,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
       };
    }
 
-   render() {
+   render(): JSX.Element {
       return (
          <>
             {this.renderEditorAi()}
@@ -31,7 +32,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
       );
    }
 
-   renderEditorAi() {
+   renderEditorAi(): JSX.Element {
       return (
          <div style={{ width: "100%", height: "100%" }}>
             <Editor
@@ -44,7 +45,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
       );
    }
 
-   renderBottomAi() {
+   renderBottomAi(): JSX.Element {
       return (
          <div className="bottomAi">
             <button onClick={this.handleCopy}>Copy</button>
@@ -53,7 +54,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
       );
    }
 
-   handleCopy = () => {
+   handleCopy = (): void => {
       navigator.clipboard
          .writeText(this.state.code)
          .then(() => {
@@ -67,7 +68,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
          });
    };
 
-   handleExport = () => {
+   handleExport = (): void => {
       const blob = new Blob([this.state.code], { type: "text/plain" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -79,7 +80,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
       URL.revokeObjectURL(url);
    };
 
-   renderAlert() {
+   renderAlert(): JSX.Element {
       return <div className="alertCopy">Code copied to clipboard!</div>;
    }
 }

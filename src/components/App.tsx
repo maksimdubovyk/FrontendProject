@@ -12,8 +12,9 @@ interface AppState {
 }
 
 export class App extends Component<AppProps, AppState> {
-    componentDidMount(): void {
-        this.setState({ openAIClient: new OpenAIClient() });
+    constructor(props: AppProps)  {
+        super(props);
+        this.state = { openAIClient: new OpenAIClient() };
     }
 
     render(): JSX.Element {
@@ -27,8 +28,7 @@ export class App extends Component<AppProps, AppState> {
                         <CodeQuality />
                     </div>
                     <div className="code-from-ai">
-                        {/* Код від ШІ  */}
-                        <CodeAi />
+                        <CodeAi openAIClient={this.state.openAIClient}/>
                     </div>
                 </div>
             </div>
