@@ -23,7 +23,7 @@ module.exports = {
       "@typescript-eslint/no-empty-interface": "off", // Вимикаємо правило no-empty-interface
       "@typescript-eslint/explicit-module-boundary-types": "warn",
       "@typescript-eslint/no-explicit-any": "warn",
-      "prettier/prettier": ["warn", { endOfLine: "auto", tabWidth: 3 }],
+      "prettier/prettier": ["warn", { endOfLine: "auto", tabWidth: 4 }],
    },
    settings: {
       react: {

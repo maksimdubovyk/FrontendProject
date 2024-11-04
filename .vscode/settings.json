@@ -9,8 +9,7 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "always"
     },
-    "editor.tabSize": 3,
+    "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode", // Використовуємо Prettier для форматування
-    "prettier.useTabs": false // Використання пробілів замість табуляції для Prettier
 }
