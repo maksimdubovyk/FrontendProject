@@ -25,7 +25,7 @@ export class App extends Component<AppProps, AppState> {
                 </div>
                 <div className="instrument-helpers">
                     <div className="code-quality">
-                        <CodeQuality />
+                        <CodeQuality openAIClient={this.state.openAIClient}/>
                     </div>
                     <div className="code-from-ai">
                         <CodeAi openAIClient={this.state.openAIClient}/>
