@@ -8,9 +8,12 @@ export class OpenAIClient {
     }
 
     public async analyzeCode(code: string): Promise<string> {
-        return this._openaiAPI.analyzeCode(code);
+        return await this._openaiAPI.analyzeCode(code);
     }
-    public async improveCode(code: string, language: ProgrammingLanguage): Promise<string> {
-        return this._openaiAPI.improveCode(code, language);
+    public async improveCode(
+        code: string,
+        language: ProgrammingLanguage,
+    ): Promise<string> {
+        return await this._openaiAPI.improveCode(code, language);
     }
 }

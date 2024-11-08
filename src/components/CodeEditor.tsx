@@ -1,8 +1,11 @@
 import React, { Component, ChangeEvent } from "react";
 import Editor from "@monaco-editor/react";
 import { ProgrammingLanguage } from "../scripts/ProgrammingLanguage";
+import EventEmitter from "events";
 
-interface CodeEditorProps {}
+interface CodeEditorProps {
+    interactionEvent: EventEmitter;
+}
 
 interface CodeEditorState {
     selectedLanguage: string;
@@ -19,11 +22,18 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
     }
 
     onQualityCodeButtonClick = (): void => {
-        console.log("Quality of code");
+        this.props.interactionEvent.emit(
+            "get-quality-text",
+            this.state.userCode,
+        );
     };
 
     onModifyCodeButtonClick = (): void => {
-        console.log("Modify code");
+        this.props.interactionEvent.emit(
+            "codeFromAi",
+            this.state.userCode,
+            this.state.selectedLanguage,
+        );
     };
 
     handleLanguageChange = (event: ChangeEvent<HTMLSelectElement>): void => {
