@@ -5,12 +5,12 @@
 }
 .bottomAi {
     display: flex;
-    flex-direction: column; // Stack buttons vertically
-    align-items: center; // Center align buttons
-    padding: 20px; // Padding around the container
+    flex-direction: column;
+    align-items: center; 
+    padding: 2rem; 
     background: var(--background-color-bottom);
-    border-radius: 8px 0px 0px 8px; // Rounded corners for the container
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); // Subtle shadow effect
+    border-radius: 0.8rem 0rem 0rem 0.8rem; 
+    box-shadow: 0 0.4rem 1.5rem rgba(0, 0, 0, 0.2); 
 }
 
 .alertCopy {
@@ -20,10 +20,10 @@
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
     color: var(--color-white);
-    padding: 10px 20px;
-    border-radius: 5px;
-    z-index: 1000; // To ensure the alert is above other elements
-    transition: opacity 0.3s ease; // Optional: Add a transition for fade effect
-    opacity: 1; // Make sure it's visible
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    z-index: 1000; 
+    transition: opacity 0.3s ease; 
+    opacity: 1;
 
   }
