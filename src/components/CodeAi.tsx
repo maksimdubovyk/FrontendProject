@@ -52,7 +52,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
                 <Editor
                     defaultLanguage="javascript"
                     theme="vs-dark"
-                    value={this.state.code} 
+                    value={this.state.codeResult} 
                     options={{ readOnly: true }} 
                 />
             </div>
