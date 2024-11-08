@@ -1,3 +1,8 @@
+.codeWindow{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 .bottomAi {
     display: flex;
     flex-direction: column; // Stack buttons vertically
@@ -6,32 +11,6 @@
     background: #525452;
     border-radius: 8px 0px 0px 8px; // Rounded corners for the container
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); // Subtle shadow effect
-
-    button {
-      background-color: #007acc; // Button background color
-      color: white; // Text color
-      border: none; // Remove default border
-      border-radius: 4px; // Rounded corners
-      padding: 10px 20px; // Padding inside buttons
-      font-size: 16px; // Font size
-      cursor: pointer; // Change cursor to pointer
-      margin: 5px 0; // Space between buttons
-
-      transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; // Smooth transition effects
-
-      // Style for hover state
-      &:hover {
-        background-color: #005a99; // Darker shade on hover
-        transform: scale(1.05); // Slightly enlarge button on hover
-        box-shadow: 0 4px 10px rgba(0, 90, 255, 0.5); // Shadow effect on hover
-      }
-
-      // Style for active state
-      &:active {
-        transform: scale(0.95); // Slightly shrink button when clicked
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); // Reduce shadow on click
-      }
-    }
 }
 
 .alertCopy {

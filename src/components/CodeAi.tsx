@@ -34,7 +34,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
 
    renderEditorAi(): JSX.Element {
       return (
-         <div style={{ width: "100%", height: "100%" }}>
+         <div className="codeWindow">
             <Editor
                defaultLanguage="javascript"
                theme="vs-dark"
@@ -48,8 +48,8 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
    renderBottomAi(): JSX.Element {
       return (
          <div className="bottomAi">
-            <button onClick={this.handleCopy}>Copy</button>
-            <button onClick={this.handleExport}>Export</button>
+            <button className="button" onClick={this.handleCopy}>Copy</button>
+            <button className="button" onClick={this.handleExport}>Export</button>
          </div>
       );
    }

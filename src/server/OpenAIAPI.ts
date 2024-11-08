@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import { OpenAIModels } from "./OpenAIModels";
+import { ProgrammingLanguage } from "../scripts/ProgrammingLanguage";
 
 export class OpenAIAPI {
     private openai: OpenAI;
@@ -19,8 +20,8 @@ export class OpenAIAPI {
         const prompt = `Analyze the code and assess its clarity, categorizing issues as soft, medium, or hard. Provide only the quality assessment without code, shortening the text of the assessment to state the main problem without explanation:\n\n${code}`;
         return await this.sendRequest(prompt);
     }
-    public async improveCode(code: string): Promise<string> {
-        const prompt = `Перепиши цей TypeScript код, щоб він був якісніший:\n\n${code}`;
+    public async improveCode(code: string, language: ProgrammingLanguage): Promise<string> {
+        const prompt = `Rewrite this ${language} code to make it high-quality, understandable, efficient, and compliant with the coding standards for the specified programming language, following the principles of readability, maintainability, and optimality. Generate only code without explanations:\n\n${code}`;
         return await this.sendRequest(prompt);
     }
 

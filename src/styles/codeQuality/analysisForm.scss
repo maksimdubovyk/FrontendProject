@@ -29,25 +29,6 @@
   box-shadow: 0 4px 15px rgba(255, 216, 216, 0.2); // Subtle shadow effect
 }
 
-/* Стиль для кнопок */
-.copy-button, .export-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white; /* Текст кольору білий */
-  background-color: #6c757d; /* Основний колір кнопки */
-  border: none; /* Без обводки */
-  border-radius: 5px; /* Заокруглені кути */
-  cursor: pointer; /* Курсор у вигляді руки при наведенні */
-  transition: background-color 0.3s ease; /* Анімація переходу */
-  outline: none;
-  height: auto; /* Висота кнопки автоматична */
-}
-
-.copy-button:hover, .export-button:hover {
-  background-color: #5a6268;
-}
-
 /* Стиль для сповіщення */
 .alert {
   position: fixed;

@@ -64,10 +64,10 @@ class CodeQuality extends Component<CodeQualityProps, CodeQualityState> {
     renderBottomA(): JSX.Element {
         return (
             <div className="bottomA">
-                <button onClick={this.copyCode} className="copy-button">
+                <button  onClick={this.copyCode} className="button">
                     Copy
                 </button>
-                <button onClick={this.exportCode} className="export-button">
+                <button onClick={this.exportCode} className="button">
                     Export
                 </button>
             </div>
