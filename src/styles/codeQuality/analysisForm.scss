@@ -1,3 +1,9 @@
+.code-display-container {
+  display: flex;
+  padding: 15px;
+  overflow: hidden;
+}
+
 /* Стиль для контейнера коду */
 .code-display {
   background-color: #ffffff;

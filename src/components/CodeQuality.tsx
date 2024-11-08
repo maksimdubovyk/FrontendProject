@@ -48,7 +48,9 @@ class CodeQuality extends Component<CodeQualityProps, CodeQualityState> {
     render(): JSX.Element {
         return (
             <>
-                <div className="code-display">{this.state.code}</div>
+                <div className="code-display-container">
+                    <div className="code-display">{this.state.code}</div>
+                </div>
                 {this.renderBottomA()}
                 {this.state.showAlert && (
                     <div className="alert">
