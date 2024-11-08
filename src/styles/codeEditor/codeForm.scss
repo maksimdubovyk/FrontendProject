@@ -1,21 +1,20 @@
 .bottom {
     display: flex;
-    padding: 5px;
-    gap: 10px;
+    padding: 0.5rem;
+    gap: 1rem;
 }
 
 .language-dropdown{
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 0.5rem;
     color: var(--color-white);
 }
 
 .dropdown {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 1rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.5rem;
     cursor: pointer;
     transition: border-color 0.3s ease;
     outline: none;

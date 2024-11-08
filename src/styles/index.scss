@@ -28,13 +28,12 @@ code {
 #root {
   width: 100vw;
   height: 100vh;
-  font-size: var(--font-size-base);
-  font-family: 'Roboto', sans-serif;
 
   * {
     box-sizing: border-box;
+    font-size: var(--font-size-base);
+    font-family: 'Roboto', sans-serif;
   }
-
 }
 
 iframe#webpack-dev-server-client-overlay{display:none!important}
