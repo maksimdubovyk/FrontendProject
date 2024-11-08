@@ -5,44 +5,42 @@
   overflow: hidden;
 }
 
-/* Стиль для контейнера коду */
 .code-display {
   flex-grow: 1;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   color: #333;
   padding: 15px;
   border-radius: 8px;
-  font-size: 14px; /* Зменшуємо шрифт */
-  white-space: pre-wrap; /* Дозволяє переносити текст на новий рядок */
-  word-wrap: break-word; /* Дозволяє перенос слів для обтікання */
-  overflow-x: hidden; /* Вимикаємо горизонтальну прокрутку */
+  font-size: var(--font-size-small);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: hidden;
   border: 1px solid #ddd;
 }
 
-/* Стиль для контейнера кнопок */
 .bottomA {
   display: flex;
-  flex-direction: column; // Stack buttons vertically
-  align-items: center; // Center align buttons
-  padding: 20px; // Padding around the container
-  background-color: #525452;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--background-color-bottom);
   border-radius: 8px 0px 0px 8px;
-  box-shadow: 0 4px 15px rgba(255, 216, 216, 0.2); // Subtle shadow effect
+  box-shadow: 0 4px 15px rgba(255, 216, 216, 0.2);
 }
 
-/* Стиль для сповіщення */
+
 .alert {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+  color: var(--color-white);
   padding: 10px 20px;
   border-radius: 5px;
-  z-index: 1000; /* Щоб сповіщення було поверх інших елементів */
-  transition: opacity 0.3s ease; /* Анімація для ефекту згасання */
-  opacity: 1; /* Переконуємось, що воно видно */
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  opacity: 1;
 }
 
 
