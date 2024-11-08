@@ -1,11 +1,14 @@
 :root{
-  --main-padding: 10px;
-  --font-size-base: 16px;
-  --font-size-small: 14px;
+  --main-padding: 1rem;
+  --font-size-base: 1.6rem;
+  --font-size-small: 1.4rem;
   --color-white: #ffffff;
   --background-color-bottom: #525452; 
 }
 
+html {
+  font-size: 10px;
+}
 
 body {
   margin: 0;
@@ -31,6 +34,7 @@ code {
   * {
     box-sizing: border-box;
   }
+
 }
 
 iframe#webpack-dev-server-client-overlay{display:none!important}
