@@ -55,12 +55,14 @@
   flex-direction: column;
   height: 100%;
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .code-quality, .code-from-ai {
   display: flex;  
   max-height: 50%;
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .code-quality {
