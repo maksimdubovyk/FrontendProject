@@ -1,16 +1,17 @@
 .code-display-container {
   display: flex;
+  flex-grow: 1;
   padding: 15px;
   overflow: hidden;
 }
 
 /* Стиль для контейнера коду */
 .code-display {
+  flex-grow: 1;
   background-color: #ffffff;
   color: #333;
   padding: 15px;
   border-radius: 8px;
-  font-family: 'Courier New', Courier, monospace;
   font-size: 14px; /* Зменшуємо шрифт */
   white-space: pre-wrap; /* Дозволяє переносити текст на новий рядок */
   word-wrap: break-word; /* Дозволяє перенос слів для обтікання */

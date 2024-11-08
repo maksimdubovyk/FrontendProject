@@ -19,7 +19,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+    color: var(--color-white);
     padding: 10px 20px;
     border-radius: 5px;
     z-index: 1000; // To ensure the alert is above other elements
