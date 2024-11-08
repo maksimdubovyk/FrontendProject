@@ -1,5 +1,5 @@
-@import 'App';
-@import 'index';
-@import 'codeEditor/codeForm';
-@import 'codeQuality/analysisForm';
-@import 'codeAi/aiCode';
+@use 'App';
+@use 'index';
+@use 'codeEditor/codeForm';
+@use 'codeQuality/analysisForm';
+@use 'codeAi/aiCode';
