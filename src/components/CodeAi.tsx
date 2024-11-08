@@ -23,10 +23,14 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
             showAlert: false, 
             codeResult: "",
         };
+    }
 
-        this.props.interactionEvent.on("codeFromAi", (codeResult: string) => {
-            this.setState({ codeResult });
-        });
+    componentDidMount(): void {
+        this.props.interactionEvent.on("codeFromAi", this.handleCodeRequest );
+    }
+
+    componentWillUnmount(): void {
+        this.props.interactionEvent.removeListener("codeFromAi", this.handleCodeRequest);
     }
     handleCodeRequest = async (code : string, language: ProgrammingLanguage): Promise<void> => {
         try {
