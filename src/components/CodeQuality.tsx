@@ -1,36 +1,48 @@
 import React, { Component } from "react";
 import { OpenAIClient } from "../scripts/OpenAIClient";
+import EventEmitter from "events";
 
 interface CodeQualityProps {
     openAIClient: OpenAIClient;
+    interactionEvent: EventEmitter;
 }
 
 interface CodeQualityState {
-    code: string;
     showAlert: boolean;
+    textOfQuality: string;
 }
 
 class CodeQuality extends Component<CodeQualityProps, CodeQualityState> {
     constructor(props: CodeQualityProps) {
         super(props);
         this.state = {
-            code: "//",
+            textOfQuality: "",
             showAlert: false,
         };
+
+        this.props.interactionEvent.on(
+            "get-quality-text",
+            this.updateTextOfQuality,
+        );
     }
 
+    updateTextOfQuality = async (code: string): Promise<void> => {
+        const response = await this.props.openAIClient.analyzeCode(code);
+        this.setState({ textOfQuality: response });
+    };
+
     copyCode = (): void => {
-        const { code } = this.state;
+        const { textOfQuality } = this.state;
 
         navigator.clipboard
-            .writeText(code)
+            .writeText(textOfQuality)
             .then(() => this.showAlert())
             .catch((err) => console.error("Failed to copy code: ", err));
     };
 
     exportCode = (): void => {
-        const { code } = this.state;
-        const blob = new Blob([code], { type: "text/plain" });
+        const { textOfQuality } = this.state;
+        const blob = new Blob([textOfQuality], { type: "text/plain" });
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
 
@@ -49,7 +61,9 @@ class CodeQuality extends Component<CodeQualityProps, CodeQualityState> {
         return (
             <>
                 <div className="code-display-container">
-                    <div className="code-display">{this.state.code}</div>
+                    <div className="code-display">
+                        {this.state.textOfQuality}
+                    </div>
                 </div>
                 {this.renderBottomA()}
                 {this.state.showAlert && (
