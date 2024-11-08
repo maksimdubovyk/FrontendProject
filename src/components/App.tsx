@@ -26,7 +26,9 @@ export class App extends Component<AppProps, AppState> {
         return (
             <div className="App">
                 <div className="code-editor">
-                    <CodeEditor />
+                    <CodeEditor
+                        interactionEvent={this.state.interactionEvent}
+                    />
                 </div>
                 <div className="instrument-helpers">
                     <div className="code-quality">
