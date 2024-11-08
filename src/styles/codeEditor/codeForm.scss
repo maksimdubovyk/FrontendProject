@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    color: white;
+    color: var(--color-white);
 }
 
 .dropdown {
@@ -22,5 +22,5 @@
 }
 
 .dropdown:hover {
-    border-color: #686e74; /* Зміна кольору обводки при наведенні */
+    border-color: #686e74;
 }
