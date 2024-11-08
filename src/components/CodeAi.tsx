@@ -1,33 +1,47 @@
 import React, { Component } from "react";
 import Editor from "@monaco-editor/react";
 import { OpenAIClient } from "../scripts/OpenAIClient";
+import { EventEmitter } from "stream";
+import { ProgrammingLanguage } from "../scripts/ProgrammingLanguage";
 
-// Определение типов для props и state
 interface CodeAiProps {
     openAIClient: OpenAIClient;
+    interactionEvent: EventEmitter;
 }
 
 interface CodeAiState {
     code: string;
-    showAlert: boolean; // Состояние для отображения уведомления
+    showAlert: boolean; 
+    codeResult: string;
 }
 
 class CodeAi extends Component<CodeAiProps, CodeAiState> {
     constructor(props: CodeAiProps) {
         super(props);
         this.state = {
-            code: "import React", // Состояние для кода
-            showAlert: false, // Изначально уведомление скрыто
+            code: "import React", 
+            showAlert: false, 
+            codeResult: "",
         };
-    }
 
+        this.props.interactionEvent.on("codeFromAi", (codeResult: string) => {
+            this.setState({ codeResult });
+        });
+    }
+    handleCodeRequest = async (code : string, language: ProgrammingLanguage): Promise<void> => {
+        try {
+            const response = await this.props.openAIClient.improveCode(code, language); 
+            this.setState({ codeResult: response }); 
+        } catch (error) {
+            console.error("Error fetching code from AI: ", error);
+        }
+    };
     render(): JSX.Element {
         return (
             <>
                 {this.renderEditorAi()}
                 {this.renderBottomAi()}
                 {this.state.showAlert && this.renderAlert()}{" "}
-                {/* Условное отображение уведомления */}
             </>
         );
     }
@@ -38,8 +52,8 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
                 <Editor
                     defaultLanguage="javascript"
                     theme="vs-dark"
-                    value={this.state.code} // Используйте состояние для значения кода
-                    options={{ readOnly: true }} // Режим только для чтения
+                    value={this.state.code} 
+                    options={{ readOnly: true }} 
                 />
             </div>
         );
@@ -62,9 +76,9 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
         navigator.clipboard
             .writeText(this.state.code)
             .then(() => {
-                this.setState({ showAlert: true }); // Показываем уведомление
+                this.setState({ showAlert: true }); 
                 setTimeout(() => {
-                    this.setState({ showAlert: false }); // Скрываем уведомление через 2 секунды
+                    this.setState({ showAlert: false }); 
                 }, 2000);
             })
             .catch((err) => {
@@ -77,7 +91,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "code.txt"; // Имя для экспортированного файла
+        a.download = "code.txt"; 
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
