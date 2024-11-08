@@ -1,7 +1,7 @@
 .code-display-container {
   display: flex;
   flex-grow: 1;
-  padding: 15px;
+  padding: 1.5rem;
   overflow: hidden;
 }
 
@@ -9,23 +9,23 @@
   flex-grow: 1;
   background-color: var(--color-white);
   color: #333;
-  padding: 15px;
-  border-radius: 8px;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
   font-size: var(--font-size-small);
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-x: hidden;
-  border: 1px solid #ddd;
+  border: 0.1rem solid #ddd;
 }
 
 .bottomA {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 2rem;
   background-color: var(--background-color-bottom);
-  border-radius: 8px 0px 0px 8px;
-  box-shadow: 0 4px 15px rgba(255, 216, 216, 0.2);
+  border-radius: 0.8rem 0 0 8rem;
+  box-shadow: 0 0.4rem 1.5rem rgba(255, 216, 216, 0.2);
 }
 
 
@@ -36,8 +36,8 @@
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.8);
   color: var(--color-white);
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
   z-index: 1000;
   transition: opacity 0.3s ease;
   opacity: 1;
