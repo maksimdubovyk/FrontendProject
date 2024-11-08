@@ -31,7 +31,7 @@ export class OpenAIAPI {
     private async sendRequest(prompt: string): Promise<string> {
         try {
             const completion = await this.openai.chat.completions.create({
-                model: OpenAIModels.GPT_3_5_TURBO,
+                model: OpenAIModels.GPT_4O_MINI,
                 messages: [{ role: "user", content: prompt }],
             });
             return completion.choices[0].message.content.trim();

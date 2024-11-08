@@ -23,14 +23,14 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
 
     onQualityCodeButtonClick = (): void => {
         this.props.interactionEvent.emit(
-            "get-quality-code",
+            "get-quality-text",
             this.state.userCode,
         );
     };
 
     onModifyCodeButtonClick = (): void => {
         this.props.interactionEvent.emit(
-            "get-good-code",
+            "codeFromAi",
             this.state.userCode,
             this.state.selectedLanguage,
         );

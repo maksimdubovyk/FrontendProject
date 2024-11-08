@@ -19,8 +19,17 @@ class CodeQuality extends Component<CodeQualityProps, CodeQualityState> {
             textOfQuality: "",
             showAlert: false,
         };
+    }
 
+    componentDidMount(): void {
         this.props.interactionEvent.on(
+            "get-quality-text",
+            this.updateTextOfQuality,
+        );
+    }
+
+    componentWillUnmount(): void {
+        this.props.interactionEvent.removeListener(
             "get-quality-text",
             this.updateTextOfQuality,
         );

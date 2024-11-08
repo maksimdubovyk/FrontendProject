@@ -11,7 +11,7 @@ interface CodeAiProps {
 
 interface CodeAiState {
     code: string;
-    showAlert: boolean; 
+    showAlert: boolean;
     codeResult: string;
 }
 
@@ -19,19 +19,23 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
     constructor(props: CodeAiProps) {
         super(props);
         this.state = {
-            code: "import React", 
-            showAlert: false, 
+            code: "import React",
+            showAlert: false,
             codeResult: "",
         };
 
-        this.props.interactionEvent.on("codeFromAi", (codeResult: string) => {
-            this.setState({ codeResult });
-        });
+        this.props.interactionEvent.on("codeFromAi", this.handleCodeRequest);
     }
-    handleCodeRequest = async (code : string, language: ProgrammingLanguage): Promise<void> => {
+    handleCodeRequest = async (
+        code: string,
+        language: ProgrammingLanguage,
+    ): Promise<void> => {
         try {
-            const response = await this.props.openAIClient.improveCode(code, language); 
-            this.setState({ codeResult: response }); 
+            const response = await this.props.openAIClient.improveCode(
+                code,
+                language,
+            );
+            this.setState({ codeResult: response });
         } catch (error) {
             console.error("Error fetching code from AI: ", error);
         }
@@ -52,8 +56,8 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
                 <Editor
                     defaultLanguage="javascript"
                     theme="vs-dark"
-                    value={this.state.codeResult} 
-                    options={{ readOnly: true }} 
+                    value={this.state.codeResult}
+                    options={{ readOnly: true }}
                 />
             </div>
         );
@@ -76,9 +80,9 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
         navigator.clipboard
             .writeText(this.state.code)
             .then(() => {
-                this.setState({ showAlert: true }); 
+                this.setState({ showAlert: true });
                 setTimeout(() => {
-                    this.setState({ showAlert: false }); 
+                    this.setState({ showAlert: false });
                 }, 2000);
             })
             .catch((err) => {
@@ -91,7 +95,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "code.txt"; 
+        a.download = "code.txt";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

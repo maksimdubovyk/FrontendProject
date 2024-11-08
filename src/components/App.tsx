@@ -38,9 +38,10 @@ export class App extends Component<AppProps, AppState> {
                         />
                     </div>
                     <div className="code-from-ai">
-                        <CodeAi 
-                        openAIClient={this.state.openAIClient} 
-                        interactionEvent={this.state.interactionEvent}/>
+                        <CodeAi
+                            openAIClient={this.state.openAIClient}
+                            interactionEvent={this.state.interactionEvent}
+                        />
                     </div>
                 </div>
             </div>
