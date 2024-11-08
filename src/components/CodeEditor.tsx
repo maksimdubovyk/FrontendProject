@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, ChangeEvent } from "react";
 import Editor from "@monaco-editor/react";
+import { ProgrammingLanguage } from "../scripts/ProgrammingLanguage";
 
 interface CodeEditorProps {}
 
@@ -25,14 +26,11 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
         console.log("Modify code");
     };
 
-    handleLanguageChange = (
-        event: React.ChangeEvent<HTMLSelectElement>,
-    ): void => {
+    handleLanguageChange = (event: ChangeEvent<HTMLSelectElement>): void => {
         this.setState({ selectedLanguage: event.target.value });
     };
 
-    onCodeChange = (userCode: string | undefined, ev: any): void => {
-        console.log("Code changed:", userCode);
+    onCodeChange = (userCode: string | undefined): void => {
         userCode = userCode ?? "";
         this.setState({ userCode });
     };
@@ -60,13 +58,13 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
 
     renderLanguageDropdown(): JSX.Element {
         const languages = [
-            { code: "typescript", name: "TypeScript" },
-            { code: "javascript", name: "JavaScript" },
-            { code: "css", name: "CSS" },
-            { code: "python", name: "Python" },
-            { code: "scss", name: "SCSS" },
-            { code: "json", name: "JSON" },
-            { code: "html", name: "HTML" },
+            ProgrammingLanguage.TypeScript,
+            ProgrammingLanguage.JavaScript,
+            ProgrammingLanguage.CSS,
+            ProgrammingLanguage.Python,
+            ProgrammingLanguage.SCSS,
+            ProgrammingLanguage.JSON,
+            ProgrammingLanguage.HTML,
         ];
 
         return (
@@ -79,8 +77,8 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
                     className="dropdown"
                 >
                     {languages.map((language) => (
-                        <option key={language.code} value={language.code}>
-                            {language.name}
+                        <option key={language} value={language}>
+                            {language.capitalize()}
                         </option>
                     ))}
                 </select>
