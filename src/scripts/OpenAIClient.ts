@@ -8,9 +8,18 @@ export class OpenAIClient {
     }
 
     public async analyzeCode(code: string): Promise<string> {
-        return await this._openaiAPI.analyzeCode(code);
+        const result = await this._openaiAPI.analyzeCode(code);
+        return this.deleteLanguageFromResult(result, ProgrammingLanguage.HTML);
     }
     public async improveCode(code: string, language: ProgrammingLanguage): Promise<string> {
-        return await this._openaiAPI.improveCode(code, language);
+        const result = await this._openaiAPI.improveCode(code, language);
+        return this.deleteLanguageFromResult(result, language);
+    }
+
+    // eslint-disable-next-line prettier/prettier
+    private deleteLanguageFromResult(answer: string, language: ProgrammingLanguage): string {
+        const answerWithoutLanguage = answer.replace("```" + language + "\n", "");
+        const answerWithoutLanguageAndCode = answerWithoutLanguage.replace("\n```", "");
+        return answerWithoutLanguageAndCode;
     }
 }
