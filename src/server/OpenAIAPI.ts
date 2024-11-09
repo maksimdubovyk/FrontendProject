@@ -10,9 +10,7 @@ export class OpenAIAPI {
         const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 
         if (!apiKey) {
-            throw new Error(
-                "API key is missing. Please set REACT_APP_OPENAI_API_KEY in your .env file.",
-            );
+            throw new Error("API key is missing. Please set REACT_APP_OPENAI_API_KEY in your .env file.");
         }
         this.openai = new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
     }
@@ -30,21 +28,20 @@ export class OpenAIAPI {
         return await this.sendRequest(messages);
     }
 
-    public async improveCode(
-        code: string,
-        language: ProgrammingLanguage,
-    ): Promise<string> {
+    public async improveCode(code: string, language: ProgrammingLanguage): Promise<string> {
         const prompt = `Rewrite this ${language} code to make it high-quality, understandable, efficient, and compliant with the coding standards for the specified programming language, following the principles of readability, maintainability, and optimality. Generate only code without explanations:\n\n${code}`;
         const messages: ChatCompletionMessageParam[] = [
-            { role: "user", content: "" },
+            {
+                role: "user",
+                content:
+                    "You are the best programmer in the world, who writes code of very high quality, understands any code, and knows how to rewrite it correctly to make it even better.",
+            },
             { role: "user", content: prompt },
         ];
         return await this.sendRequest(messages);
     }
 
-    private async sendRequest(
-        messages: ChatCompletionMessageParam[],
-    ): Promise<string> {
+    private async sendRequest(messages: ChatCompletionMessageParam[]): Promise<string> {
         try {
             const completion = await this.openai.chat.completions.create({
                 model: OpenAIModels.GPT_4O_MINI,
