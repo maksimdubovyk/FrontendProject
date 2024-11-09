@@ -16,7 +16,6 @@ export class OpenAIClient {
         return this.deleteLanguageFromResult(result, language);
     }
 
-    // eslint-disable-next-line prettier/prettier
     private deleteLanguageFromResult(answer: string, language: ProgrammingLanguage): string {
         const answerWithoutLanguage = answer.replace("```" + language + "\n", "");
         const answerWithoutLanguageAndCode = answerWithoutLanguage.replace("\n```", "");
