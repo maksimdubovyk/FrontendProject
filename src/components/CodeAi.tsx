@@ -26,21 +26,15 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
     }
 
     componentDidMount(): void {
-        this.props.interactionEvent.on("codeFromAi", this.handleCodeRequest );
+        this.props.interactionEvent.on("codeFromAi", this.handleCodeRequest);
     }
 
     componentWillUnmount(): void {
         this.props.interactionEvent.removeListener("codeFromAi", this.handleCodeRequest);
     }
-    handleCodeRequest = async (
-        code: string,
-        language: ProgrammingLanguage,
-    ): Promise<void> => {
+    handleCodeRequest = async (code: string, language: ProgrammingLanguage): Promise<void> => {
         try {
-            const response = await this.props.openAIClient.improveCode(
-                code,
-                language,
-            );
+            const response = await this.props.openAIClient.improveCode(code, language);
             this.setState({ codeResult: response });
         } catch (error) {
             console.error("Error fetching code from AI: ", error);

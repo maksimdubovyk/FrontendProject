@@ -26,9 +26,7 @@ export class App extends Component<AppProps, AppState> {
         return (
             <div className="App">
                 <div className="code-editor">
-                    <CodeEditor
-                        interactionEvent={this.state.interactionEvent}
-                    />
+                    <CodeEditor interactionEvent={this.state.interactionEvent} />
                 </div>
                 <div className="instrument-helpers">
                     <div className="code-quality">
@@ -38,10 +36,7 @@ export class App extends Component<AppProps, AppState> {
                         />
                     </div>
                     <div className="code-from-ai">
-                        <CodeAi
-                            openAIClient={this.state.openAIClient}
-                            interactionEvent={this.state.interactionEvent}
-                        />
+                        <CodeAi openAIClient={this.state.openAIClient} interactionEvent={this.state.interactionEvent} />
                     </div>
                 </div>
             </div>

@@ -22,17 +22,11 @@ class CodeQuality extends Component<CodeQualityProps, CodeQualityState> {
     }
 
     componentDidMount(): void {
-        this.props.interactionEvent.on(
-            "get-quality-text",
-            this.updateTextOfQuality,
-        );
+        this.props.interactionEvent.on("get-quality-text", this.updateTextOfQuality);
     }
 
     componentWillUnmount(): void {
-        this.props.interactionEvent.removeListener(
-            "get-quality-text",
-            this.updateTextOfQuality,
-        );
+        this.props.interactionEvent.removeListener("get-quality-text", this.updateTextOfQuality);
     }
 
     updateTextOfQuality = async (code: string): Promise<void> => {
@@ -78,11 +72,7 @@ class CodeQuality extends Component<CodeQualityProps, CodeQualityState> {
                     />
                 </div>
                 {this.renderBottomA()}
-                {this.state.showAlert && (
-                    <div className="alert">
-                        Code quality assessments copied!
-                    </div>
-                )}
+                {this.state.showAlert && <div className="alert">Code quality assessments copied!</div>}
             </>
         );
     }

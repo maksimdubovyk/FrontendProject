@@ -22,18 +22,11 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
     }
 
     onQualityCodeButtonClick = (): void => {
-        this.props.interactionEvent.emit(
-            "get-quality-text",
-            this.state.userCode,
-        );
+        this.props.interactionEvent.emit("get-quality-text", this.state.userCode);
     };
 
     onModifyCodeButtonClick = (): void => {
-        this.props.interactionEvent.emit(
-            "codeFromAi",
-            this.state.userCode,
-            this.state.selectedLanguage,
-        );
+        this.props.interactionEvent.emit("codeFromAi", this.state.userCode, this.state.selectedLanguage);
     };
 
     handleLanguageChange = (event: ChangeEvent<HTMLSelectElement>): void => {
@@ -99,16 +92,10 @@ class CodeEditor extends Component<CodeEditorProps, CodeEditorState> {
     renderBottom(): JSX.Element {
         return (
             <div className="bottom">
-                <button
-                    className="button"
-                    onClick={this.onQualityCodeButtonClick}
-                >
+                <button className="button" onClick={this.onQualityCodeButtonClick}>
                     Get quality of code
                 </button>
-                <button
-                    className="button"
-                    onClick={this.onModifyCodeButtonClick}
-                >
+                <button className="button" onClick={this.onModifyCodeButtonClick}>
                     Get modify code
                 </button>
                 {this.renderLanguageDropdown()}
