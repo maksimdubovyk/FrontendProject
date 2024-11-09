@@ -70,9 +70,12 @@ class CodeQuality extends Component<CodeQualityProps, CodeQualityState> {
         return (
             <>
                 <div className="code-display-container">
-                    <div className="code-display">
-                        {this.state.textOfQuality}
-                    </div>
+                    <div
+                        className="code-display"
+                        dangerouslySetInnerHTML={{
+                            __html: this.state.textOfQuality,
+                        }}
+                    />
                 </div>
                 {this.renderBottomA()}
                 {this.state.showAlert && (

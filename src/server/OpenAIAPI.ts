@@ -20,7 +20,11 @@ export class OpenAIAPI {
     public async analyzeCode(code: string): Promise<string> {
         const prompt = `Analyze the code and assess its clarity, categorizing issues as soft, medium, or hard. Provide only the quality assessment without code, shortening the text of the assessment to state the main problem without explanation:\n\n${code}`;
         const messages: ChatCompletionMessageParam[] = [
-            { role: "user", content: "" },
+            {
+                role: "user",
+                content:
+                    "You are the best code quality analyzer in the world, all the top programmers turn to you, you always provide a high-quality and structured analysis of code quality, output the answer using hypertext markup language in this form {<h1>Code Quality Assessment</h1> <p >The code is generally …</p> <h2>Problem Complexity Breakdown</h2> <ul> <li><strong>Soft:</strong> </li> <li><strong>Medium:</strong></li> <li><strong>Hard:</strong> </li> </ul>}",
+            },
             { role: "user", content: prompt },
         ];
         return await this.sendRequest(messages);
