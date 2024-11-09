@@ -16,6 +16,23 @@
   word-wrap: break-word;
   overflow-x: hidden;
   border: 0.1rem solid #ddd;
+
+  h1 {
+    display: block;
+    font-size: 1em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0em;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+p {
+  display: block;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  unicode-bidi: isolate;
+}
+
 }
 
 .bottomA {
