@@ -10,7 +10,6 @@ interface CodeAiProps {
 }
 
 interface CodeAiState {
-    code: string;
     showAlert: boolean;
     codeResult: string;
 }
@@ -19,9 +18,8 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
     constructor(props: CodeAiProps) {
         super(props);
         this.state = {
-            code: "import React",
             showAlert: false,
-            codeResult: "",
+            codeResult: "import React",
         };
     }
 
@@ -78,7 +76,7 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
 
     handleCopy = (): void => {
         navigator.clipboard
-            .writeText(this.state.code)
+            .writeText(this.state.codeResult)
             .then(() => {
                 this.setState({ showAlert: true });
                 setTimeout(() => {
@@ -91,11 +89,11 @@ class CodeAi extends Component<CodeAiProps, CodeAiState> {
     };
 
     handleExport = (): void => {
-        const blob = new Blob([this.state.code], { type: "text/plain" });
+        const blob = new Blob([this.state.codeResult], { type: "text/plain" });
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "code.txt";
+        a.download = "codeResult.txt";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
